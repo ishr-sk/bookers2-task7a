@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
   
-  # 下記追加（favoritesテーブルを通って、userモデルのデータを持ってくるって意味？？）
+  # 下記追加（favoritesテーブルを通って、bookモデルのデータを持ってくるって意味？？）
 	has_many :favorited_books, through: :favorites, source: :book  
   
   # ====================自分がフォローしているユーザーとの関連 ============================
