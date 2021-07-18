@@ -28,6 +28,11 @@ class User < ApplicationRecord
     passive_relasionships.find_by(following_id: user.id).present?
   end
   
+  # DM機能実装
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  
+  
   # ================ 検索機能 ================ 
   def self.search(search, word)
     if search == "perfect_match"
